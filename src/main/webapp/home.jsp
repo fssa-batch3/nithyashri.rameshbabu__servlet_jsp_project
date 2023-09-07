@@ -9,6 +9,7 @@
 
     <!-- font awesome link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
 <style>
 body {
 	font-family: Arial, sans-serif;
@@ -42,33 +43,28 @@ p {
 
 .pic .logo {
 	font-size: 2.0rem;
-	color: grey;;
+	color: white;;
 	text-decoration:none;
 	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
 		sans-serif;
 		
 }
 .pic .logo i {
-  color: rgb(0, 99, 99);
+  color: white;
 }
-
-</style>
-</head>
-<style>
-
 </style>
 <body>
     <jsp:include page="header.jsp"></jsp:include>
-	<header>
-		<h1>Welcome to Mgood</h1>
-	</header>
+	
 
 	<div class="container">
-		<section class="home" id="home">
-			<div class="pic">
+	<header>
+		<div class="pic">
 				<a href="#" class="logo"><i class="fas fa-heartbeat"></i>MGOOD
 				</a>
 			</div>
+		<section class="home" id="home">
+			
 			<div class="content">
 				<h3>We take care of your healthy life</h3>
 				<p>Book an appointment for an in-clinic consultation</p>
@@ -76,6 +72,7 @@ p {
 			</div>
 		</section>
 	</div>
+	</header>
 </body>
 </html>
 

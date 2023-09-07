@@ -27,8 +27,6 @@ public class CreateAppointmentServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		AppointmentsModel app = new AppointmentsModel();
-
-		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 		String loggedInEmail = (String) session.getAttribute("loggedInEmail");
 
@@ -36,13 +34,14 @@ public class CreateAppointmentServlet extends HttpServlet {
 		
 		UserService userservice = new UserService();
 		
+		String docname = request.getParameter("docname");
+		String hosname = request.getParameter("hosname");
+		String time = request.getParameter("time");
 		try {
 			
 			UserModel user = userservice.findUserByEmailService(loggedInEmail);
 			
-			String docname = request.getParameter("docname");
-			String hosname = request.getParameter("hosname");
-			String time = request.getParameter("time");
+			
 			 
 			app.setDoctorName(docname);
 			app.setHospitalName(hosname);
@@ -50,14 +49,21 @@ public class CreateAppointmentServlet extends HttpServlet {
 			user.setUserId(user.getUserId());
 			app.setUser(user);
 			appservice.createAppointment(app);
-			out.append("Created appointment Successfully");
+//			out.append("Created appointment Successfully");
 			response.sendRedirect("ViewAppointments");
  
 		}
 
 		catch (ServiceException e) {
-			response.sendRedirect("createAppointment.jsp?errorMessage=Create Appointment failed : " + e.getMessage());
-			out.println("Registration failed : " + e.getMessage());
+			
+
+			request.setAttribute("docname", docname);
+			request.setAttribute("hosname", hosname);
+			request.setAttribute("time", time);
+			request.setAttribute("errorMessage", "Create Appointment failed: " + e.getMessage());
+			request.getRequestDispatcher("createAppointment.jsp").forward(request, response);
+			//response.sendRedirect("createAppointment.jsp?errorMessage=Create Appointment failed : " + e.getMessage());
+			
 		}
 	}
 

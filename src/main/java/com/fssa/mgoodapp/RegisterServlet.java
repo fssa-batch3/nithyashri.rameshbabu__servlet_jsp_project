@@ -44,8 +44,8 @@ public class RegisterServlet extends HttpServlet {
 		}
 		
 		catch(ServiceException e){
-			response.sendRedirect("register.jsp?errorMessage=Register user failed : " + e.getMessage());
-			out.println("Registration failed : " + e.getMessage());
+			response.sendRedirect("register.jsp?errorMessage= " + e.getMessage());
+
 		}
 	}
 

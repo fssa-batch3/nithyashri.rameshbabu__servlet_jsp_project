@@ -6,7 +6,6 @@
     <meta charset="ISO-8859-1">
     <title>Insert title here</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-      <style>
       
  <style>
         /* Reset some default styles */
@@ -18,15 +17,13 @@
 
         /* Basic styles for the header and nav */
         header {
-            background-color: #333;
+            
             color: #fff;
             text-align: center;
             padding: 20px;
         }
 
-        nav {
-            background-color: #222;
-        }
+       
 
         nav ul {
             display: flex;
@@ -45,15 +42,15 @@
             color: #fff;
             text-decoration: none;
             padding: 10px;
-            transition: background-color 0.3s ease;
+            
         }
 
         nav ul li a:hover {
             background-color: #444;
         }
+        
     </style>
       
-      </style>
 </head>
 
 <body>

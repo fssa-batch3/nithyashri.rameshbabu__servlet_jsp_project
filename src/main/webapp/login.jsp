@@ -15,16 +15,6 @@
 		out.println("<p class='error'>" + errorMessage + "</p>");
 	}
 	%>
-    <!-- <form action="LoginServlet" method="post">
-        <label>Email: </label>
-        <input type="email" name="email" placeholder="Enter email">
-        <br />
-        <label>Password: </label>
-        <input type="password" name="password" placeholder="Enter password">
-        <br />
-        <button type="submit">Submit</button>
-    </form> -->
-    
     <div class="contain">
         <div class="wrap">
             <div class="tit"><span>Login Here</span></div>
