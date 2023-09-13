@@ -63,7 +63,7 @@
                     <li><a href="register.jsp">Sign up</a></li>
                 </c:if>
                 <c:if test="${not empty sessionScope.loggedInEmail}">
-                    <li><a href="createAppointment.jsp">Create Appointment</a></li>
+                    <li><a href="createAppointment.jsp">Book Appointment</a></li>
                     <li><a href="ProfileServlet">Profile page</a></li>
                     <li><a href="ViewAppointments">View Appointment</a></li>
                     <li><a href="LogoutServlet">Logout</a></li>

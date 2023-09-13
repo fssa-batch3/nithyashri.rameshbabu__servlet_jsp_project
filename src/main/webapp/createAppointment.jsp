@@ -70,7 +70,7 @@ h2 {
 	}
 	%>
 	<form action="CreateAppointmentServlet" method="post">
-		<h2>Create Appointment</h2>
+		<h2>Book Appointment</h2>
 		<div>
 			<label for="docname">Doctor Name:</label> <input type="text"
 				value="${docname}" id="docname" name="docname" required>
@@ -84,7 +84,7 @@ h2 {
 			<input type="text" id="time" name="time" value="${time}" required>
 		</div>
 
-		<button type="submit">Create</button>
+		<button type="submit">Book</button>
 	</form>
 
 </body>

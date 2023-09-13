@@ -49,7 +49,6 @@ public class CreateAppointmentServlet extends HttpServlet {
 			user.setUserId(user.getUserId());
 			app.setUser(user);
 			appservice.createAppointment(app);
-//			out.append("Created appointment Successfully");
 			response.sendRedirect("ViewAppointments");
  
 		}
@@ -62,7 +61,7 @@ public class CreateAppointmentServlet extends HttpServlet {
 			request.setAttribute("time", time);
 			request.setAttribute("errorMessage", "Create Appointment failed: " + e.getMessage());
 			request.getRequestDispatcher("createAppointment.jsp").forward(request, response);
-			//response.sendRedirect("createAppointment.jsp?errorMessage=Create Appointment failed : " + e.getMessage());
+		
 			
 		}
 	}
