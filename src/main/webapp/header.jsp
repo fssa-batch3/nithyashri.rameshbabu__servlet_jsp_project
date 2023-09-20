@@ -1,79 +1,47 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
-  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="ISO-8859-1">
-    <title>Insert title here</title>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-      
- <style>
-        /* Reset some default styles */
-        body, ul, li {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
 
-        /* Basic styles for the header and nav */
-        header {
-            
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-       
 
-        nav ul {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-        }
+<%
 
-        /* Style for the list items (links) */
-        nav ul li {
-            margin: 0;
-            padding: 0;
-        }
+String admin =request.getContextPath() + "/adminlogin.jsp"; 
+String contact = request.getContextPath() + "/docsign.jsp";
+String patient = request.getContextPath()  + "/login.jsp";
+String home = request.getContextPath()  + "/doctor0.jsp";
+String doctors = request.getContextPath()  + "/doctor.jsp";
+String healthtest = request.getContextPath()  + "/periodspage.jsp";
+String blogs = request.getContextPath()  + "/services.jsp";
+String history =request.getContextPath()  + "/patientapphistory.jsp";
+String indexpage = request.getContextPath() + "index.jsp";
+%>
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px;
-            
-        }
 
-        nav ul li a:hover {
-            background-color: #444;
-        }
-        
-    </style>
-      
-</head>
 
-<body>
+	<header class="header">
+						<a href="#" class="logo"> <i class="fas fa-heartbeat"></i>MGOOD
+					</a>
 
-  <header>
-        <nav>
-            <ul>
-                <c:if test="${empty sessionScope.loggedInEmail}">
-                    <li><a href="login.jsp">Login</a></li>
-                    <li><a href="register.jsp">Sign up</a></li>
-                </c:if>
-                <c:if test="${not empty sessionScope.loggedInEmail}">
-                    <li><a href="createAppointment.jsp">Book Appointment</a></li>
-                    <li><a href="ProfileServlet">Profile page</a></li>
-                    <li><a href="ViewAppointments">View Appointment</a></li>
-                    <li><a href="LogoutServlet">Logout</a></li>
-                </c:if>
-            </ul>
-        </nav>
-    </header>
-    
-  
-    
-    
-</body>
-</html>
+				<c:if test="${empty sessionScope.loggedInEmail}">
+				
+					<nav class="navbar">
+						<a href=admin>Admin</a> <a href=contact>Doctor</a> <a
+							href=patient>User</a>
+					</nav>
+					<div id="menu-btn" class="fas fa-bars"></div>
+				</c:if>
+				<c:if test="${not empty sessionScope.loggedInEmail}">
+				
+					<nav class="navbar">
+					
+						<a href=home>Home</a> <a href="<%= doctors %>">Doctors</a> <a
+							href=healthtest>Periods Calculator</a> <a href=blogs>Blogs</a>
+						<a href="/pages/patientapphistory.html?userid=getuser">Booking
+							history</a> <a href="index.jsp" onclick="logout_link()">logout</a><img
+							onclick="profile()" id="random_img" alt ="img">
+					</nav>
+					<div id="menu-btn" class="fas fa-bars"></div>
+				</c:if>
+
+	</header>
+
+

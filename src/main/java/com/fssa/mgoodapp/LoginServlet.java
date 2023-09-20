@@ -34,11 +34,14 @@ public class LoginServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		UserService userservice = new UserService();
 		try {
+			UserModel user1 = userservice.findUserByEmailService(email);
 			userservice.loginUser(user);
 			HttpSession session = request.getSession();
 			session.setAttribute("loggedInEmail", email);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
-			dispatcher.forward(request, response);
+			session.setAttribute("userId", user1.getUserId());
+			RequestDispatcher dispatcher = request.getRequestDispatcher("doctor0.jsp");
+	        dispatcher.forward(request, response);
+			
 		} catch (ServiceException e) {
 			response.sendRedirect("login.jsp?errorMessage= " + e.getMessage());
 		}

@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100&family=Poppins:wght@100;300;400;500;700&display=swap");
+:root {
+  --aqua: rgb(17, 163, 163);
+  --black: #444;
+  --light-color: #777;
+  --box-shadow: 0.5rem 0.5rem 0 rgb(17, 163, 163);
+  --text-shadow: 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+  --border: 0.2rem solid var(--green);
+}
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  text-transform: capitalize;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease-out;
+}
+.doctors .box-container {
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 2rem; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.doctors {
+  background-color: rgb(255, 255, 255);
+  margin-top: 100px;
+}
+
+.doctors .box-container .box {
+  text-align: center;
+  background: #fff;
+  width: 390px;
+  height: 140px;
+  padding: 2rem;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+
+  margin-left: -500px;
+}
+
+.doctors .box-container .box img {
+  /* height: 20rem; */
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid black;
+  float: left;
+}
+
+.doctors .box-container .box h3 {
+  color: var(--black);
+  font-size: 2.5rem;
+}
+
+.doctors .box-container .box span {
+  color: var(--aqua);
+  font-size: 1.5rem;
+}
+
+/* .doctors .box-container .box .share a {
+  height: 5rem;
+  width: 5rem;
+  line-height: 4.5rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  color: rgb(0, 99, 99);
+  margin: 0.3rem;
+} */
+.share {
+  margin-top: 10px;
+  margin-right: 20px;
+}
+h1 {
+  font-size: 20px;
+}
+h2 {
+  font-size: 17px;
+  font-weight: 300;
+}
+p {
+  font-size: 16px;
+}
+.img1:hover {
+  transform: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transform: scale(1.12);
+}
+.heading {
+  color: black;
+  text-transform: capitalize;
+  font-size: 3.5rem;
+  text-align: center;
+  margin-top: 20px;
+}
+.heading span {
+  color: var(--aqua);
+}
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+.header {
+  padding: 2rem 9%;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  z-index: 1000;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  position: fixed;
+}
+.header .logo {
+  font-size: 2.6rem;
+  color: var(--black);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.header .logo i {
+  color: var(--aqua);
+}
+.header .navbar a {
+  font-size: 1.7rem;
+  color: var(--light-color);
+  margin-left: 2rem;
+}
+
+.header .navbar a:hover {
+  color: var(--aqua);
+}
+#menu-btn {
+  font-size: 2.5rem;
+  border-radius: 0.5rem;
+  background: #eee;
+  color: var(--blue);
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+#random_img {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 40px;
+  cursor: pointer;
+}
+.container {
+  max-width: 400px;
+  margin: auto;
+  margin-right: 300px;
+  margin-top: -310px;
+  padding: 20px;
+  border: 1px solid black;
+  /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); */
+}
+h1 {
+  text-align: center;
+  margin-top: 0;
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+#submit {
+  background-color: #58bab0;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 150px;
+}
+
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 55%;
+  }
+  .header {
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #menu-btn {
+    display: initial;
+  }
+  .header .navbar {
+    position: absolute;
+    top: 15%;
+    right: 2rem;
+    border-radius: 0.5rem;
+    /* box-shadow: var(--aqua); */
+    width: 14rem;
+    /* border: #051d40 solid; */
+    background: #fff;
+    transform: scale(0);
+    opacity: 0;
+    transform-origin: top right;
+    transition: none;
+  }
+  .header .navbar.active {
+    transform: scale(1);
+    opacity: 1;
+    transition: 0.2s ease-out;
+  }
+  .header .navbar a {
+    font-size: 2rem;
+    display: block;
+    margin: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  html {
+    font-size: 50%;
+  }
+}

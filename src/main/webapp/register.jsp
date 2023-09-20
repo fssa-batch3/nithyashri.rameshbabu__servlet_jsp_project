@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link rel = "stylesheet" href = "./assets/css/register.css">
+<link rel = "stylesheet" href = "./assets/css/login.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
 		out.println("<p class='error'>" + errorMessage + "</p>");
 	}
 	%>
-
+     
 	 <div class="contain">
         <div class="wrap">
             <div class="tit"><span>Sign-Up</span></div>

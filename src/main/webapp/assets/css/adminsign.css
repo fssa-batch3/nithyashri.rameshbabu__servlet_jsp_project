@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100&family=Poppins:wght@100;300;400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: rgb(17, 163, 163);
+  overflow: hidden;
+}
+.contain {
+  max-width: 540px;
+  padding: 0 20px;
+  margin: 170px auto;
+  margin-top: 250px;
+}
+.wrap {
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
+}
+.wrap .tit {
+  height: 90px;
+  background: #158b8d;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrap form {
+  padding: 30px 25px 25px 25px;
+}
+.wrap form .rows {
+  height: 45px;
+  margin-bottom: 15px;
+  position: relative;
+}
+.wrap form .rows input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 60px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  font-size: 16px;
+}
+
+.wrap form .rows i {
+  position: absolute;
+  width: 47px;
+  height: 100%;
+  color: #fff;
+  font-size: 18px;
+  background: #158b8d;
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrap form .password {
+  margin: -8px 0 20px 0;
+}
+.wrap form .password a {
+  color: #158b8d;
+  font-size: 17px;
+  text-decoration: none;
+}
+.wrap form .password a:hover {
+  text-decoration: underline;
+}
+.wrap form .button a {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  /* margin-left: 370px; */
+  background: #158b8d;
+  text-decoration: none;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: center;
+  border-radius: 7px;
+}
+form .button a:hover {
+  background: rgb(17, 163, 163);
+}
+.wrap form .signup {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 17px;
+}
+.wrap form .signup a {
+  color: #158b8d;
+  text-decoration: none;
+}
+form .signup a:hover {
+  text-decoration: underline;
+}
+button {
+  padding: 5px 10px;
+  background-color: rgb(17, 163, 163);
+  border: none;
+  color: aliceblue;
+  font-size: 15px;
+}
+.wrap form .button {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  /* margin-left: 370px; */
+  /* background: #158b8d; */
+  text-decoration: none;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: center;
+  border-radius: 7px;
+}
+
+#fname:valid {
+  border-color: green;
+}
+
+#fname:focus:invalid {
+  border-color: red;
+}
+
+#lname:valid {
+  border-color: green;
+}
+
+#lname:focus:invalid {
+  border-color: red;
+}
+#email:valid {
+  border-color: green;
+}
+
+#email:focus:invalid {
+  border-color: red;
+}
+#pass:valid {
+  border-color: green;
+}
+
+#pass:focus:invalid {
+  border-color: red;
+}
+
+#passwd:valid {
+  border-color: green;
+}
+
+#passwd:focus:invalid {
+  border-color: red;
+}

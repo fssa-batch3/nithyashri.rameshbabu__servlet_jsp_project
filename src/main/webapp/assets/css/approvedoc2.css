@@ -1,0 +1,76 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* .details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+} */
+
+.details div {
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.details div:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.details h2 {
+  margin-top: 0;
+}
+
+.details p {
+  margin: 0;
+}
+
+.approve-btn,
+.decline-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.approve-btn:hover {
+  background-color: #3e8e41;
+}
+.docimg {
+  width: 20%;
+  border-radius: 50%;
+  margin-left: 320px;
+  margin-bottom: 10px;
+}
+.addimg,
+.hosimg {
+  width: 30%;
+  /* margin-left: 450px; */
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}

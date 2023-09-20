@@ -1,0 +1,51 @@
+label {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+.period-calculator {
+  width: 55%;
+  height: fit-content;
+  background-color: rgb(237, 253, 251);
+  margin: auto;
+  padding: 40px 50px;
+  margin-top: 100px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+input {
+  width: 100%;
+  font-size: 18px;
+  margin-top: 10px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #0000003c;
+  color: black;
+  background-color: transparent;
+}
+button {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  width: 120px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  color: var(--toggle-color);
+  background-color: var(--body-text-color);
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+  margin: auto;
+  text-decoration: none;
+  background-color: rgb(37, 113, 87);
+  margin-top: 20px;
+}
+button:hover {
+  text-decoration: none;
+  outline: none;
+  border: none;
+}

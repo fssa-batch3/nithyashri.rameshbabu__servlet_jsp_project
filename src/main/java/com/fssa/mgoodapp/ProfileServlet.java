@@ -32,7 +32,7 @@ PrintWriter out = response.getWriter();
 		} else {
 			try {
 				UserModel user = userService.findUserByEmailService(loggedInEmail);
-               out.println(user);
+				out.println(user);
 				request.setAttribute("user", user);
 
 				RequestDispatcher dispatcher = request.getRequestDispatcher("profilepage.jsp");
@@ -40,9 +40,37 @@ PrintWriter out = response.getWriter();
 			} catch (ServiceException e) {
 				response.sendRedirect("profilepage.jsp?errorMessage=User profile view Failed : " + e.getMessage());
 			}
-
 		}
-		
-	}
+	}	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String name = request.getParameter("name").trim();
+		String email = request.getParameter("mail").trim();
+		String password = request.getParameter("pass").trim();
+		String phone = request.getParameter("mob").trim();
+		String address = request.getParameter("add").trim();
+		String image = request.getParameter("img").trim();
+			
+		  try {
+		        UserService userService = new UserService();
+		        UserModel user= new UserModel();
+		        user.setName(name);
+		        user.setEmail(email);
+		        user.setPassword(password);
+		        user.setPhone(phone);
+		        user.setAddress(address);
+		        user.setProfilePic(image);
+		        
+		        userService.updateUser(user);
 
+		        response.sendRedirect("ProfileServlet");
+		    } catch (ServiceException e) {
+		        response.sendRedirect("/profilepage.jsp?errorMessage=Update Failed: " + e.getMessage());
+		    }
+	}	
+	
 }
+
+
+
+
+

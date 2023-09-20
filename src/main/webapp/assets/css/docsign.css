@@ -1,0 +1,145 @@
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  text-transform: capitalize;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease-out;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+.header {
+  padding: 2rem 9%;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  z-index: 1000;
+  /* box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1); */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background: #fff; */
+  /* position: fixed; */
+  margin-left: -80px;
+}
+.header .logo {
+  font-size: 2.6rem;
+  color: var(--black);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.header .logo i {
+  color: var(--aqua);
+}
+.header a {
+  font-size: 1.7rem;
+  color: var(--light-color);
+  margin-left: 2rem;
+}
+
+.header .navbar a:hover {
+  color: var(--aqua);
+}
+#menu-btn {
+  font-size: 2.5rem;
+  border-radius: 0.5rem;
+  background: #eee;
+  color: var(--blue);
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+body {
+  background-image: url("../images/Patients\ are\ looking\ for\ doctors\ like\ you\ \(2\).png");
+}
+
+form {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  width: 400px;
+  margin: auto;
+  margin-top: 5px;
+  margin-left: 100px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+input[type="text"],
+input[type="password"],
+#gender,
+#special_in,
+#phone_no {
+  display: block;
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.submit {
+  background-color: #51b08d;
+  color: white;
+  padding: 10px 20px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+}
+
+.submit:hover {
+  background-color: rgb(39, 88, 81);
+}
+
+label {
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+input[type="text"]:valid {
+  border-color: green;
+}
+
+input[type="text"]:focus:invalid {
+  border-color: red;
+}
+
+input[type="email"]:valid {
+  border-color: green;
+}
+
+input[type="email"]:focus:invalid {
+  border-color: red;
+}
+
+input[type="password"]:valid {
+  border-color: green;
+}
+
+input[type="password"]:focus:invalid {
+  border-color: red;
+}

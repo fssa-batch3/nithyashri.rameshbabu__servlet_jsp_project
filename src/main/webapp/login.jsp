@@ -4,7 +4,7 @@
 <head>
     <meta charset="ISO-8859-1">
     <title>Insert title here</title>
-    <link rel = "stylesheet" href = "./assets/css/register.css">
+    <link rel = "stylesheet" href = "./assets/css/login.css">
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
@@ -15,6 +15,7 @@
 		out.println("<p class='error'>" + errorMessage + "</p>");
 	}
 	%>
+	
     <div class="contain">
         <div class="wrap">
             <div class="tit"><span>Login Here</span></div>
@@ -31,7 +32,7 @@
                 <div class="rows button">
                     <button type="submit">Login</button>
                 </div>
-                <div class="signup">Not a member? <a href="./signup.html">Signup now</a></div>
+                <div class="signup">Not a member? <a href="register.jsp">Signup now</a></div>
             </form>
         </div>
     </div>

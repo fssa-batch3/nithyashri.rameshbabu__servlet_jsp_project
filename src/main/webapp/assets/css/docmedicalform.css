@@ -1,0 +1,103 @@
+body {
+  background-image: url("../images/Arrow1.png");
+}
+
+form {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  width: 400px;
+  margin: auto;
+  /* margin-bottom: -10px; */
+  /* margin-left: 50px; */
+  margin-top: 180px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+input[type="text"],
+input[type="password"],
+#gender,
+#special_in,
+#council,
+#year,
+#exyear,
+#image_url,
+#degree,
+#college,
+#doctor-availability,
+#aadhar_image {
+  display: block;
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+#submit {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#submit:hover {
+  background-color: #345a36;
+}
+
+label {
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+input[type="text"]:valid {
+  border-color: green;
+}
+
+input[type="text"]:focus:invalid {
+  border-color: red;
+}
+
+input[type="email"]:valid {
+  border-color: green;
+}
+
+input[type="email"]:focus:invalid {
+  border-color: red;
+}
+
+input[type="password"]:valid {
+  border-color: green;
+}
+
+input[type="password"]:focus:invalid {
+  border-color: red;
+}
+
+/* label {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 10px;
+} */
