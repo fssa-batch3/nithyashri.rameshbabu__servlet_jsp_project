@@ -75,9 +75,10 @@ public class CreateDoctorServlet extends HttpServlet {
 			docmodel.setRegistrationNumber(regnum);
 			docmodel.setSpecialization(specialization);
 			docmodel.setRegistrationYear(regyear);
+		
 			
 			docservice.createDoctor(docmodel);
-			response.sendRedirect("./docapprove.jsp");
+			response.sendRedirect("./docapprove.jsp?doctorname="+doctorname);
 				
 		}
 		

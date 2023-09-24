@@ -23,47 +23,5 @@ import com.fssa.mgood.service.exception.ServiceException;
 public class CreateAppointmentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		AppointmentsModel app = new AppointmentsModel();
-		HttpSession session = request.getSession();
-		String loggedInEmail = (String) session.getAttribute("loggedInEmail");
-
-		AppointmentService appservice = new AppointmentService();
-		
-		UserService userservice = new UserService();
-		
-		String docname = request.getParameter("docname");
-		String hosname = request.getParameter("hosname");
-		String time = request.getParameter("time");
-		try {
-			
-			UserModel user = userservice.findUserByEmailService(loggedInEmail);
-			
-			
-			 
-			app.setDoctorName(docname);
-			app.setHospitalName(hosname);
-			app.setTime(time);
-			user.setUserId(user.getUserId());
-			app.setUser(user);
-			appservice.createAppointment(app);
-			response.sendRedirect("ViewAppointments");
- 
-		}
-
-		catch (ServiceException e) {
-			
-
-			request.setAttribute("docname", docname);
-			request.setAttribute("hosname", hosname);
-			request.setAttribute("time", time);
-			request.setAttribute("errorMessage", "Create Appointment failed: " + e.getMessage());
-			request.getRequestDispatcher("createAppointment.jsp").forward(request, response);
-		
-			
-		}
-	}
-
+	
 }

@@ -6,14 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/appshow.css">
+    <link rel="stylesheet" href="./assets/css/appshow.css">
 </head>
 
 <body>
-    <header class="header" id="header">
-
-    </header>
-
+       <jsp:include page="header.jsp"></jsp:include>
     <body>
         <div class="main">
             <!-- <div class="card">
@@ -30,73 +27,10 @@
                 </div>
                 <a href="#" class="btn">Add to Calendar</a>
             </div> -->
-
         </div>
 
-
-
-
-
-
-
-        <script>
-
-            let urlget = window.location.search
-            let parms = new URLSearchParams(urlget)
-            let params = parms.get("userid")
-            let details = JSON.parse(localStorage.getItem("appointmentdetails"))
-            for (let i = 0; i < details.length; i++) {
-                if (params == details[i]["user_id"]) {
-
-
-                    let time = details[i].slotID;
-                    console.log(time);
-                    const parts = time.split("_");
-                    const times = parts[3].split("-");
-                    const timeRange = times[0] + "-" + times[1];
-
-
-
-
-
-
-
-
-
-
-
-                    let card = document.createElement("div")
-                    card.setAttribute("class", "card")
-                    card.innerHTML = `<h1>Appoinment Booking Details</h1>
-                <div class="appointment-details">
-                    <p>Doctor Name: ${details[i].docname} </p>
-                    <p>Doctor Speciality: ${details[i].docspl} </p>
-                
-                    
-                </div>
-                <div class="date-time">
-                    
-                    <p><b>Date:</b> ${details[i].appdte}</p><br>
-                    <p><b>Time:</b> ${timeRange}</p>
-                </div>`
-                    // <a href="#" class="btn">Add to Calendar</a>`
-
-                    document.querySelector(".main").append(card)
-                }
-            }
-        </script>
-
-        <script>
-            function docprofile() {
-                window.location.href = "./doctorprofile.html"
-            }
-        </script>
-
-        <script src="../components/header.js">
-        </script>
-        <script>
-            nav_head()
-        </script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+ <script src="<%= request.getContextPath() %>/assets/js/patientbookinghistory.js"></script>
     </body>
 
 

@@ -18,7 +18,7 @@ import com.fssa.mgood.service.exception.ServiceException;
 @WebServlet("/UpdateConfirmationDoctorServlet")
 public class UpdateConfirmationDoctorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	String confirmation = request.getParameter("confirmation");
 	String doctor_id = request.getParameter("doctor_id");
@@ -35,6 +35,7 @@ public class UpdateConfirmationDoctorServlet extends HttpServlet {
 		response.sendRedirect("./approvedoc1.jsp?errorMessage="+e.getMessage());
 		
 	}
+	
 	} 
 
 

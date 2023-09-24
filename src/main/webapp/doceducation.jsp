@@ -6,10 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/doceducation.css">
+    <link rel="stylesheet" href="./assets/css/doceducation.css">
 </head>
 
 <body>
+<jsp:include page="header.jsp"></jsp:include>
     <form id="docedu" method = "POST" action = "<%= request.getContextPath() %>/dochos.jsp">
         <h1>Educational_Qualification</h1>
          <input type="hidden" name="doctorname" id="name"  required>

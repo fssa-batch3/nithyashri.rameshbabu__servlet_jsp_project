@@ -7,10 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <link rel="stylesheet" href="./assets/css/docmedicalform.css">
+<link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
-
+	<jsp:include page="header.jsp"></jsp:include>
 	<form id="docmedical" method = "POST" action = "<%= request.getContextPath() %>/doceducation.jsp">
 		<h1>Medical Registration</h1>
 		    <input type="hidden" name="doctorname" id="name"  required>
@@ -42,7 +43,7 @@
 		</select> 
 		
 		<label for="username">Registration year</label> 
-		<select id="year" name = "regyear" required>
+		<select id="year"name="registrationYear" required>
 			<option value="" disabled selected>Registration year</option>
 		</select>
 
@@ -85,50 +86,25 @@ String password = request.getParameter("password");
 		option.text = i;
 		yeardropdown.appendChild(option);
 	}
+	
+	 document.getElementById("docmedical").addEventListener("submit", function(event) {
+	        let selectedYear = document.getElementById("year").value;
+	        let currentYear = new Date().getFullYear();
 
-	/*  let form = document.getElementById("docmedical")
-	 form.addEventListener("submit", function (event) {
-	     event.preventDefault();
+	        // Define an acceptable range of years (e.g., from 1923 to the current year)
+	        let minYear = 1923;
+	        let maxYear = currentYear;
 
-	     let num = document.getElementById("num").value;
-	     let council = document.getElementById("council").value;
-	     let year = document.getElementById("year").value;
-	     let docdatas = {
-	         registrationno: num,
-	         registrationcouncil: council,
-	         registrationyr: year
+	        // Check if the selected year is empty (not selected)
+	        if (!selectedYear) {
+	            event.preventDefault(); // Prevent form submission
+	            alert("Please select a registration year.");
+	        } else if (selectedYear < minYear || selectedYear > maxYear) {
+	            event.preventDefault(); // Prevent form submission
+	            alert("Please select a valid registration year.");
+	        }
+	    });
 
-	     }
-	     const url = window.location.search;
-	     const url_params = new URLSearchParams(url)
-	     const get_id = url_params.get("doctorid")
-	     console.log(get_id)
-	     let docdetails = JSON.parse(localStorage.getItem("doctor"))
-	     console.log(docdetails)
-	     let finddoc = docdetails.find(function (event) {
-	         let find = event["doctor_id"]
-	         if (find == get_id) {
-	             return true;
-	         }
-	     })
-	     // console.log(finddoc)
-	     let check_obj = Object.assign(finddoc, docdatas)
-	     console.log(check_obj)
-
-	     let index = docdetails.indexOf(finddoc)
-	     console.log(index);
-
-	     docdetails[index] = check_obj
-
-	     localStorage.setItem("doctor", JSON.stringify(docdetails))
-
-	     alert("Step 2 finished")
-	     window.location.href = "./doceducation.html?doctorid=" + finddoc["doctor_id"]
-
-
-
-	 })
-	 */
 </script>
 
 </body>

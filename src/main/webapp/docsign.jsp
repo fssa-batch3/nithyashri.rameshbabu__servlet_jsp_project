@@ -12,15 +12,14 @@
 </head>
 
 <body>
-    <header class="header">
-        <!-- <a href="#" class="logo"> <i class="fas fa-heartbeat"></i>MGOOD</a> -->
-
-
-        <div id="menu-btn" class="fas fa-bars"></div>
-    </header>
-
+<jsp:include page="header.jsp"></jsp:include>
+  <div class="banner-text">
+        <h2 class = "welcome">Welcome, Doctors!</h2>
+        <p class="con">Join mgood today and connect with patients effortlessly.</p>
+    
+    </div>
 <form class="form" method="post" action="<%= request.getContextPath() %>/docmedicalform.jsp">
-  <h1>Doctor registration</h1>
+  <h1>Sign up now</h1>
     <label for="doctorname">Name</label>
     <input type="text" name="doctorname" id="name" pattern="^(?=.{0,50}$)[A-Za-z]+(?:\s[A-Za-z]+){0,3}$" required>
     

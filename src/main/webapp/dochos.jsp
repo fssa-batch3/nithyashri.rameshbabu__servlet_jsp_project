@@ -6,12 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/dochos.css">
+    <link rel="stylesheet" href="./assets/css/dochos.css">
 </head>
 
 <body>
+
+	<jsp:include page="header.jsp"></jsp:include>
     <form id="dochos"  method = "POST" action = "CreateDoctorServlet">
-        <h1>Hospital_details</h1>
+        <h1>Clinical details</h1>
          <input type="hidden" name="doctorname" id="name"  required>
 		    <input type="hidden" name="email" id="mail" required>
 		     <input type="hidden" name="specialization" id="special_in">
@@ -34,12 +36,12 @@
         <input type="text" id="hosname" name = "hosname" pattern="^(?=.{0,50}$)[A-Za-z]+(?:\s[A-Za-z]+){0,3}$" required>
         <label for="username">Hospital Address</label>
         <input type="text" id="hosadd" name ="hosadd"
-            pattern="^(?=.{0,200}$)[A-Za-z0-9!@#$%^&*()_+-={}[\]|\\;:'>,.?/]+[A-Za-z0-9]+(?:\s[A-Za-z0-9\s!@#$%^&*()_+-={}[\]|\\;:'>,.?/]+[A-Za-z0-9]+){0,10}$"
+         
             required>
             <span id="displaytime"> <label for="username">Doctor's availability</label> <label for="username">Doctor's
                     availability</label></span>
             <span id="time"><select id="doctor-availability" name = "availfrom">
-                    <option value="" disabled selected>Enter your starting time</option>
+                    <option value="" disabled selected>From</option>
                     <option value="9:00 AM">9:00 AM</option>
                     <option value="10:00 AM">10:00 AM</option>
                     <option value="11:00 AM">11:00 AM</option>
@@ -55,7 +57,7 @@
                     <option value="21:00 PM">21:00 PM</option>
                 </select>
                 <select id="doctor-endavailability" name = "availend">
-                    <option value="" disabled selected>Enter your ending time</option>
+                    <option value="" disabled selected>To</option>
                     <option value="9:00 AM">9:00 AM</option>
                     <option value="10:00 AM">10:00 AM</option>
                     <option value="11:00 AM">11:00 AM</option>
@@ -76,7 +78,6 @@
             <input type="text" id="hosimg" name ="hosimg"required>
             <label for="username">Consultation fee</label>
             <input type="text" id="docfee" name = "consulfee"
-                pattern="^(?=.{0,200}$)[0-9!@#$%^&*()_+-={}[\]|\\;:'>,.?/]+[0-9]+(?:\s[0-9\s!@#$%^&*()_+-={}[\]|\\;:'>,.?/]+[0-9]+){0,10}$"
                 required>
             <button id="submit" type="submit">Continue</button>
     </form>
@@ -164,60 +165,20 @@ String docimg = request.getParameter("docimg");
     document.getElementById("image_url").value = docimg;
     
     
-    
-    
-    
-    
-   /*      let form = document.getElementById("dochos")
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
+ // Add an event listener to the form submission
+    document.getElementById("dochos").addEventListener("submit", function (event) {
+            let startTime = document.getElementById("doctor-availability").value;
+            let endTime = document.getElementById("doctor-endavailability").value;
 
-            let hosname = document.getElementById("hosname").value;
-            let hosadd = document.getElementById("hosadd").value;
-            let doctortime = document.getElementById("doctor-availability").value;
-            let doctorendtime = document.getElementById("doctor-endavailability").value;
-            let hosimg = document.getElementById("hosimg").value;
-            let docfee = document.getElementById("docfee").value;
-
-            let dochos_data = {
-                hosname: hosname,
-                hosadd: hosadd,
-                docslot: doctortime,
-                doctorendtime: doctorendtime,
-                hosimg: hosimg,
-                docfee: docfee
-
-
+            if (startTime === endTime) {
+                event.preventDefault(); // Prevent form submission if validation fails
+                alert("Starting time and ending time cannot be the same.");
             }
-            const url = window.location.search;
-            const url_params = new URLSearchParams(url)
-            const get_id = url_params.get("doctorid")
-            console.log(get_id)
-            let docdetails = JSON.parse(localStorage.getItem("doctor"))
-            console.log(docdetails)
-            let finddoc = docdetails.find(function (event) {
-                let find = event["doctor_id"]
-                if (find == get_id) {
-                    return true;
-                }
-            })
-            // console.log(finddoc)
-            let check_obj = Object.assign(finddoc, dochos_data)
-            console.log(check_obj)
+        });
+  
+    
+    
 
-            let index = docdetails.indexOf(finddoc)
-            console.log(index);
-
-            docdetails[index] = check_obj
-
-            localStorage.setItem("doctor", JSON.stringify(docdetails))
-
-            alert("Step 4 completed")
-            window.location.href = "./docapprove.html?doctorid=" + finddoc["doctor_id"]
-
-
-
-        }) */
     </script>
 </body>
 

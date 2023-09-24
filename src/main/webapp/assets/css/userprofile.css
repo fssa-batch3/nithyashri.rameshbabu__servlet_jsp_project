@@ -61,11 +61,22 @@ html {
   cursor: pointer;
   display: none;
 }
+.profile-card{
+  width: 25%;
+  height: fit-content;
+  background-color: #d7eaea;
+  margin: auto;
+  padding: 40px 50px;
+  margin-top: 100px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 18px;
+}
 
 .wholeprofilecontainer {
   width: 55%;
   height: fit-content;
-  background-color: #afd5cd;
+  background-color: #d7eaea;
   margin: auto;
   padding: 40px 50px;
   margin-top: 100px;
@@ -112,6 +123,9 @@ input {
   color: black;
   background-color: transparent;
 }
+input:hover{
+	 background-color: transparent;
+}
 
 .submit {
   display: flex;
@@ -122,8 +136,6 @@ input {
   height: 50px;
   border-radius: 10px;
   border: none;
-  color: var(--toggle-color);
-  background-color: var(--body-text-color);
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;
@@ -138,6 +150,42 @@ input {
   outline: none;
   border: none;
 }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.profile-box {
+    width: 300px; /* Adjust the width as needed */
+}
+
+.caption {
+    margin: 10px ;
+    font-size:15px;
+}
+
+#btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left:70px;
+      color: white;
+  background-color: rgb(37, 113, 87);
+  border-radius: 10px;
+}
+
 #profile {
   float: center;
   margin: auto;

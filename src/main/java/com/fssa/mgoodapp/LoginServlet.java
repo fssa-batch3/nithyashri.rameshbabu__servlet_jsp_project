@@ -39,6 +39,8 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("loggedInEmail", email);
 			session.setAttribute("userId", user1.getUserId());
+			session.setAttribute("user", user1);
+	
 			RequestDispatcher dispatcher = request.getRequestDispatcher("doctor0.jsp");
 	        dispatcher.forward(request, response);
 			

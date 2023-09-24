@@ -124,3 +124,15 @@ form .signup a:hover {
 #email:focus:invalid {
   border-color: red;
 }
+
+.error {
+  color: red;
+  width: 40%;
+  padding: 10px;
+  margin: auto;
+  text-align: center; 
+  position: absolute;
+  top: 83%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+}

@@ -28,3 +28,13 @@ let randomimg = document.getElementById("random_img");
 randomimg.setAttribute("src", gmail["image"]);
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    const backBtn = document.querySelector(".backBtn");
+    backBtn.addEventListener("click", function () {
+        history.back(); // Go back to the previous page
+        
+    });
+});
+
+
+

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/adminlogin.css">
+    <link rel="stylesheet" href="./assets/css/adminlogin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
@@ -61,7 +61,7 @@
             window.localStorage.setItem("adminhere", JSON.stringify(arr));
             // window.localStorage.setItem("adminmail", JSON.stringify(arr[0]["adminEmail"]));
             console.log(match);
-            window.alert("admin added");
+            window.alert("Admin logged_in");
 
             // break;/
         }
@@ -73,7 +73,7 @@
         if (match === true) {
             // window.alert("login success!");
 
-            window.location.href = "./adminpage.html"
+            window.location.href = "./adminpage.jsp"
         }
         else {
             window.alert("invalid admin credentials");

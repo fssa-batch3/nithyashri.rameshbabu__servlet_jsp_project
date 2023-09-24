@@ -93,6 +93,6 @@ function logout_link() {
 
 
 function profile(){
-	window.location.href = "ProfileServlet";
+	window.location.href = "./profilepage.jsp";
 }
 

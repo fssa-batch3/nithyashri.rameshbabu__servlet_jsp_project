@@ -70,6 +70,10 @@ html {
   margin-left: 40px;
   cursor: pointer;
 }
+.clicked {
+    background-color: #007BFF; /* Change the background color to indicate selection */
+    color: #fff; /* Change the text color for visibility */
+}
 
 .main-wrapper {
   min-height: 100vh;
