@@ -8,7 +8,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/doceducation.css">
 </head>
+<style>
+.error-msg{
+font-size:14px;
+color:red;
 
+}
+
+</style>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
     <form id="docedu" method = "POST" action = "<%= request.getContextPath() %>/dochos.jsp">
@@ -45,12 +52,13 @@
             </option>
         </select>
         <label for="username">year of completion</label>
-        <select id="exyear" name = "comyr" required>
+        <select id="exyear" name = "comyr" required >
             <option value="" disabled selected>Type year of completion</option>
         </select>
         <label for="username">Year of experience</label>
-        <input type="text" id="exnum" name = "exyr" maxlength="2" required>
-
+        <input type="text" id="exnum" name = "exyr" min="0" max="39" maxlength="2" required><span id="exyr-error" class="error-msg"></span>
+<br>
+<br>
 
         <h1>Identity_Proof</h1>
         <label for="name">Aadhar_no</label><br />
@@ -74,7 +82,7 @@ String mobnum = request.getParameter("mobnum");
 String password = request.getParameter("password");
 String regnum = request.getParameter("regnum");
 String regcouncil = request.getParameter("regcouncil");
-String regyear = request.getParameter("regyear");
+
 
 %>
 
@@ -88,7 +96,7 @@ String regyear = request.getParameter("regyear");
     let password = "<%= password %>";
     let regnum = "<%= regnum %>";
     let regcouncil = "<%= regcouncil %>";
-    let regyear = "<%= regyear %>";
+
 
     document.getElementById("name").value = doctorname;
     document.getElementById("mail").value = email;
@@ -99,69 +107,45 @@ String regyear = request.getParameter("regyear");
     document.getElementById("password").value = password;
     document.getElementById("num").value = regnum;
     document.getElementById("council").value = regcouncil;
-    document.getElementById("year").value = regyear;
     
     
     
         let currentYear = new Date().getFullYear();
         let yeardropdown = document.getElementById("exyear");
-        for (let i = currentYear; i >= 1923; i--) {
+        for (let i = currentYear; i >= 1970; i--) {
             let option = document.createElement("option");
             option.value = i;
             option.text = i;
             yeardropdown.appendChild(option);
         }
+        
+        const exYearInput = document.getElementById("exyear");
+        const exNumInput = document.getElementById("exnum");
+        const exYearError = document.getElementById("exyr-error");
 
-/*         let form = document.getElementById("docedu")
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
+        exNumInput.addEventListener("input", function () {
+            const exYear = exYearInput.value;
+            const exNum = exNumInput.value;
+            if (exYear && exNum) {
+                const completionYear = parseInt(exYear);
+                const experienceYear = parseInt(exNum);
+                const currentYear = new Date().getFullYear();
 
-            let degree = document.getElementById("degree").value;
-            let college = document.getElementById("college").value;
-            let exyear = document.getElementById("exyear").value;
-            let exnum = document.getElementById("exnum").value;
-            let aadhar_no = document.getElementById("aadhar_no").value;
-            let aadhar_img = document.getElementById("aadhar_image").value;
-            let images = document.getElementById("image_url").value;
-            let docedu_data = {
-                degree: degree,
-                college: college,
-                yearofcomplete: exyear,
-                Experience: exnum,
-                aadharproof: aadhar_no,
-                aadhar_img: aadhar_img,
-                doctor_img: images
-
-            }
-            const url = window.location.search;
-            const url_params = new URLSearchParams(url)
-            const get_id = url_params.get("doctorid")
-            console.log(get_id)
-            let docdetails = JSON.parse(localStorage.getItem("doctor"))
-            console.log(docdetails)
-            let finddoc = docdetails.find(function (event) {
-                let find = event["doctor_id"]
-                if (find == get_id) {
-                    return true;
+                if (experienceYear < 0 || experienceYear > (currentYear - completionYear)) {
+                    exYearError.textContent = "Invalid experience year";
+                    exNumInput.setCustomValidity("Invalid experience year");
+                } else {
+                    exYearError.textContent = "";
+                    exNumInput.setCustomValidity("");
                 }
-            })
-            // console.log(finddoc)
-            let check_obj = Object.assign(finddoc, docedu_data)
-            console.log(check_obj)
+            }
+        });
 
-            let index = docdetails.indexOf(finddoc)
-            console.log(index);
+        exYearInput.addEventListener("change", function () {
+            exNumInput.dispatchEvent(new Event("input"));
+        });
 
-            docdetails[index] = check_obj
-
-            localStorage.setItem("doctor", JSON.stringify(docdetails))
-
-            alert("Step 3 completed")
-            window.location.href = "./dochos.html?doctorid=" + finddoc["doctor_id"]
-
-
-
-        })  */
+      
     </script>
 </body>
 

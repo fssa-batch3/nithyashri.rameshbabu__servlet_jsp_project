@@ -22,6 +22,15 @@ html {
   font-size: 62.5%;
   overflow-x: hidden;
 }
+.signup {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 17px;
+}
+.signup a {
+  color: #158b8d;
+  text-decoration: none;
+}
 .header {
   padding: 2rem 9%;
   top: 0%;

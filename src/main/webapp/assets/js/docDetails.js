@@ -92,7 +92,7 @@ dateInput.addEventListener("change", function() {
         let images = document.getElementById("img");
         images.setAttribute("src", doc_detail["doctorImg"]);
         let name = document.getElementById("name");
-        name.innerText = doc_detail["name"];
+        name.innerText = "Dr. " + doc_detail["name"];
         let rate = document.getElementById("rate");
         let edu = document.getElementById("edu");
         edu.innerText = doc_detail["specialization"];

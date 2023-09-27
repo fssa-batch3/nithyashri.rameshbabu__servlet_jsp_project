@@ -90,10 +90,15 @@ function docnav_head() {
 
 
 
-function logout_link() {
+function logout_links() {
     if (confirm("Are you sure you want to logout?")) {
-        localStorage.removeItem("doctor_login");
-        window.location.href = `${indexpage} `
+        window.location.href = "DoctorLogoutServlet";
     }
     console.log(indexpage)
 }
+
+
+function docprofile(){
+	window.location.href = "./doctorprofile.jsp";
+}
+

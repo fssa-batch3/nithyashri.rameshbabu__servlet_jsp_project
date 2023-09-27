@@ -11,6 +11,7 @@
 
 <body>
 
+     
 	<jsp:include page="header.jsp"></jsp:include>
     <form id="dochos"  method = "POST" action = "CreateDoctorServlet">
         <h1>Clinical details</h1>
@@ -93,7 +94,6 @@ String mobnum = request.getParameter("mobnum");
 String password = request.getParameter("password");
 String regnum = request.getParameter("regnum");
 String regcouncil = request.getParameter("regcouncil");
-String regyear = request.getParameter("regyear");
 String degree = request.getParameter("degree");
 String college = request.getParameter("college");
 String comyr = request.getParameter("comyr");
@@ -118,7 +118,6 @@ String docimg = request.getParameter("docimg");
     let password = "<%= password %>";
     let regnum = "<%= regnum %>";
     let regcouncil = "<%= regcouncil %>";
-    let regyear = "<%= regyear %>";
     let degree =  "<%= degree %>";
     let college =  "<%= college %>";
     let comyr =  "<%= comyr %>";
@@ -155,7 +154,6 @@ String docimg = request.getParameter("docimg");
     document.getElementById("password").value = password;
     document.getElementById("num").value = regnum;
     document.getElementById("council").value = regcouncil;
-    document.getElementById("year").value = regyear;
     document.getElementById("degree").value = degree;
     document.getElementById("college").value = college;
     document.getElementById("exyear").value = comyr;
@@ -175,7 +173,7 @@ String docimg = request.getParameter("docimg");
                 alert("Starting time and ending time cannot be the same.");
             }
         });
-  
+
     
     
 

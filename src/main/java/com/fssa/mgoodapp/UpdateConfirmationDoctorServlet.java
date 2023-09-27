@@ -29,7 +29,7 @@ public class UpdateConfirmationDoctorServlet extends HttpServlet {
 		docmodel.setDoctorId(docid);
 		docmodel.setConfirmation(confirmation);
 		docservice.docServiceApprove(docmodel);
-		response.sendRedirect("./approvedoc1.jsp");
+		response.sendRedirect("./verifieddoctors.jsp");
 	}
 	catch(ServiceException e) {
 		response.sendRedirect("./approvedoc1.jsp?errorMessage="+e.getMessage());

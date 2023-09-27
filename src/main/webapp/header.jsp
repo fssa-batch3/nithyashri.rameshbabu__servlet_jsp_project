@@ -32,7 +32,7 @@ String indexpage = request.getContextPath() + "index.jsp";
 
 		<nav class="navbar">
 
-			<a href=home>Home</a> <a href="<%=doctors%>">Doctors</a>
+			<a href="<%=home%>">Home</a> <a href="<%=doctors%>">Doctors</a>
 			<!-- <a href=healthtest>Periods Calculator</a> -->
 			<!-- <a href=blogs>Blogs</a> --> <a
 				href="./patientapphistory.jsp?user_id=${user.userId}">Booking

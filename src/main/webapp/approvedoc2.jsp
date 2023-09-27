@@ -8,11 +8,84 @@
 <title>Document</title>
 <link rel="stylesheet" href="./assets/css/approvedoc2.css">
 </head>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100&family=Poppins:wght@100;300;400;500;700&display=swap");
+:root {
+  --aqua: rgb(17, 163, 163);
+  --black: #444;
+  --light-color: #777;
+  --box-shadow: 0.5rem 0.5rem 0 rgb(17, 163, 163);
+  --text-shadow: 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+  --border: 0.2rem solid var(--green);
+}
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  text-transform: capitalize;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease-out;
+}
 
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+.header {
+  padding: 2rem 9%;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  z-index: 1000;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  position: fixed;
+}
+.header .logo {
+  font-size: 2.6rem;
+  color: var(--black);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.header .logo i {
+  color: var(--aqua);
+}
+.header .navbar a {
+  font-size: 1.7rem;
+  color: var(--light-color);
+  margin-left: 2rem;
+}
+
+.header .navbar a:hover {
+  color: var(--aqua);
+}
+#menu-btn {
+  font-size: 2.5rem;
+  border-radius: 0.5rem;
+  background: #eee;
+  color: var(--blue);
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+</style>
 <body>
+    <header class="header">
+        <a href="#" class="logo"> <i class="fas fa-heartbeat"></i>MGOOD</a>
+
+        <nav class="navbar">
+            <a href="./adminpage.jsp">Home</a>
+            <a href="./approvedoc1.jsp">Doctors</a>
+            <a href="./verifieddoctors.jsp">Verified doctors</a>
+        </nav>
+        <div id="menu-btn" class="fas fa-bars"></div>
+    </header>
 	<div class="container">
 		<div class="all">
-			<h1>Doctor details</h1>
 			<img id="docimg" class="docimg">
 			<div class="details">
 				<div>
@@ -42,12 +115,12 @@
 				<div>
 					<h2>Identity proof</h2>
 					<p id = "aadharno"></p>
-					<label>Aadhar image:</label><img id= "aadharImg" class="addimg">
+					<img id= "aadharImg" class="addimg">
 				</div>
 				<div>
 					<h2>Hospital details</h2>
 					<p id = "hosname"></p>
-				   <label>Hospital image:</label><img id= "hosImg" class="hosimg">
+				  <img id= "hosImg" class="hosimg">
 					<p id = "docavail"></p>
 					<p id = "docfee"></p>
 				</div>
@@ -116,62 +189,11 @@ function displaydoctors(findobj){
 	document.getElementById("college").textContent = "College: " + findobj.college;
 	document.getElementById("comyr").textContent = "Completion year: " + findobj.completionYear;
 	document.getElementById("aadharno").textContent = "Aadhar no: " + findobj.aadharNo;
- /* document.getElementById("aadharImg").textContent = "Aadhar img: " + findobj.aadharImg; */
 	document.getElementById("hosname").textContent = "Clinic name: " + findobj.clinicalName;
-/* 	document.getElementById("hosImg").textContent = "Clinic img: " + findobj.clinicImg; */
 	document.getElementById("docavail").textContent = "Doctor availability: " + findobj.doctorAvailabilityFrom + " to" +  findobj.doctorAvailabilityEnd;
 	document.getElementById("docfee").textContent = "Doctor fees: " + findobj.consulationFee;
 
-  /* let box = document.createElement("div")
-
-        box.setAttribute("class", "all")
-        box.innerHTML = `<h1>Doctor details</h1>
-            <img class="docimg"
-                src=${findobj["doctorImg"]}>
-            <div class="details">
-                <div>
-                    <h2>Personal details</h2>
-                    <p>Name: ${findobj["name"]}</p>
-                    <p>Email: ${findobj["mail"]}</p>
-                    <p>Phone: ${findobj["mob"]}</p>
-                    <p>Gender:${findobj["gender"]}</p>
-                </div>
-                <div>
-                    <h2>Specialty</h2>
-                    <p>Special_in: ${findobj["special"]}</p>
-                    <p>Experience :${findobj["Experience"]}</p>
-                </div>
-                <div>
-                    <h2>Medical registration</h2>
-                    <p>Registration Number: ${findobj["registrationno"]}</p>
-                    <p>Registration Council: ${findobj["registrationcouncil"]}</p>
-                    <p>Registration year: ${findobj["registrationyr"]} </p>
-                </div>
-                <div>
-                    <h2>Education</h2>
-                    <p>Degree:   ${findobj["degree"]} </p>
-                    <p>College:  ${findobj["college"]}</p>
-                    <p>Completion year: ${findobj["yearofcomplete"]}</p>
-                </div>
-                <div>
-                    <h2>Identity proof</h2>
-                    <p>Aadhar_no :  ${findobj["aadharproof"]} </p>
-                    <img class="addimg"
-                src=${findobj["aadhar_img"]}>
-                </div>
-                <div>
-                    <h2>Hospital details</h2>
-                    <p>Hospital name :  ${findobj["hosname"]} </p>
-                    <img class="hosimg"
-                src=${findobj["hosimg"]}>
-                    <p>Doctor's availability :  ${findobj["docslot"]} - ${findobj["doctorendtime"]} </p>
-                    <p>Doctor fee : ${findobj["docfee"]}</p>
-                </div>
-            </div>
-
-            <button  class="approve-btn">Approve</button> <span> <button class="decline-btn">Decline</button></span>`
-
-        document.querySelector(".container").append(box) */
+ 
         let button = document.querySelector(".approve-btn")
         
 button.addEventListener("click", (e) => {

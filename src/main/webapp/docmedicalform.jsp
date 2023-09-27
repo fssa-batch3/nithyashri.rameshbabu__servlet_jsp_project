@@ -40,12 +40,13 @@
 				Council (GDC)</option>
 			<option value="Health and Care Professions Council (HCPC)">Health
 				and Care Professions Council (HCPC)</option>
+				   <option value="Medical Council of India (MCI)">Medical Council of India (MCI)</option>
+    <option value="American Medical Association (AMA)">American Medical Association (AMA)</option>
+    <option value="Medical Board of Australia">Medical Board of Australia</option>
+    <option value="Irish Medical Council">Irish Medical Council</option>
+    <option value="Medical Council of Canada (MCC)">Medical Council of Canada (MCC)</option>
 		</select> 
 		
-		<label for="username">Registration year</label> 
-		<select id="year"name="registrationYear" required>
-			<option value="" disabled selected>Registration year</option>
-		</select>
 
 		<button id="submit" type="submit">Continue</button>
 	</form>
@@ -62,13 +63,16 @@ String password = request.getParameter("password");
 %>
 
 <script>
-    let doctorname =  "<%=doctorname%>";
+document.addEventListener("DOMContentLoaded", function () {
+    let doctorname = "<%=doctorname%>";
     let email = "<%=email%>";
     let specialization = "<%=specialization%>";
     let gender = "<%= gender %>";
     let bio = "<%= bio %>";
     let mobnum = "<%= mobnum %>";
     let password = "<%= password %>";
+    
+    console.log(doctorname);
 
     document.getElementById("name").value = doctorname;
     document.getElementById("mail").value = email;
@@ -77,33 +81,8 @@ String password = request.getParameter("password");
     document.getElementById("bio").value = bio;
     document.getElementById("mobnum").value = mobnum;
     document.getElementById("password").value = password;
-    
-	let currentYear = new Date().getFullYear();
-	let yeardropdown = document.getElementById("year");
-	for (let i = currentYear; i >= 1923; i--) {
-		let option = document.createElement("option");
-		option.value = i;
-		option.text = i;
-		yeardropdown.appendChild(option);
-	}
-	
-	 document.getElementById("docmedical").addEventListener("submit", function(event) {
-	        let selectedYear = document.getElementById("year").value;
-	        let currentYear = new Date().getFullYear();
 
-	        // Define an acceptable range of years (e.g., from 1923 to the current year)
-	        let minYear = 1923;
-	        let maxYear = currentYear;
-
-	        // Check if the selected year is empty (not selected)
-	        if (!selectedYear) {
-	            event.preventDefault(); // Prevent form submission
-	            alert("Please select a registration year.");
-	        } else if (selectedYear < minYear || selectedYear > maxYear) {
-	            event.preventDefault(); // Prevent form submission
-	            alert("Please select a valid registration year.");
-	        }
-	    });
+});
 
 </script>
 

@@ -57,13 +57,13 @@
 
 	<form id="form" action = "./AppointmentServlet" method = "POST">
     <label for="name">Name:</label>
-    <input type="text" id="name" name="name" pattern="[A-Za-z]{1,15}" required>
+    <input type="text" id="name" name="name" pattern="[A-Za-z]{1,15}" readonly required>
 
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+    <input type="email" id="email" name="email" readonly required>
 
     <label for="phone">Phone:</label>
-    <input type="text" id="phone" name="phone" required>
+    <input type="text" id="phone" name="phone" readonly required>
    <input type = "hidden" id = "user" name = "userid">
     <input type = "hidden" id = "doc" name = "docid">
     <label for="date">Date:</label>

@@ -8,8 +8,83 @@
     <title>Document</title>
     <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/css/verifieddoctor.css">
 </head>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100&family=Poppins:wght@100;300;400;500;700&display=swap");
+:root {
+  --aqua: rgb(17, 163, 163);
+  --black: #444;
+  --light-color: #777;
+  --box-shadow: 0.5rem 0.5rem 0 rgb(17, 163, 163);
+  --text-shadow: 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+  --border: 0.2rem solid var(--green);
+}
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  text-transform: capitalize;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease-out;
+}
 
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+.header {
+  padding: 2rem 9%;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  z-index: 1000;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  position: fixed;
+}
+.header .logo {
+  font-size: 2.6rem;
+  color: var(--black);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.header .logo i {
+  color: var(--aqua);
+}
+.header .navbar a {
+  font-size: 1.7rem;
+  color: var(--light-color);
+  margin-left: 2rem;
+}
+
+.header .navbar a:hover {
+  color: var(--aqua);
+}
+#menu-btn {
+  font-size: 2.5rem;
+  border-radius: 0.5rem;
+  background: #eee;
+  color: var(--blue);
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+</style>
 <body>
+    <header class="header">
+        <a href="#" class="logo"> <i class="fas fa-heartbeat"></i>MGOOD</a>
+
+        <nav class="navbar">
+            <a href="./adminpage.jsp">Home</a>
+             <a href="./approvedoc1.jsp">Doctors</a>
+            <a href="./verifireddoctors.jsp">Verified doctors</a>
+           
+        </nav>
+        <div id="menu-btn" class="fas fa-bars"></div>
+    </header>
     <h2>Verified doctors</h2>
     <table class="tabs">
         <table class="tab">

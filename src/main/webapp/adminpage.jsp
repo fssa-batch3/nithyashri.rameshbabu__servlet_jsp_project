@@ -20,19 +20,16 @@
         <a href="#" class="logo"> <i class="fas fa-heartbeat"></i>MGOOD</a>
 
         <nav class="navbar">
-            <!-- <a href="./Pages/adminsign.html">Admin</a> -->
-            <a href="./adminHealthtest.html">Home</a>
-            <a href="./adminHealthtest.html">Verified doctors</a>
-            <a href="./admindoc.html">Doctors</a>
-            <a href="./adminservices.html">Blogs</a>
-            <!-- <a href="./Pages/signup.html">Login</a> -->
+            <a href="./adminpage.jsp">Home</a>
+             <a href="./approvedoc1.jsp">Doctors</a>
+            <a href="./verifireddoctors.jsp">Verified doctors</a>
+           
         </nav>
         <div id="menu-btn" class="fas fa-bars"></div>
     </header>
     <div class="but">
         <a href="./approvedoc1.jsp"><button>Approve Doctor</button></a>
-        <a href="../Pages/healthtestform.html"> <button>Create Healthtest</button></a>
-        <a href="../Pages/blogform.html"><button>Create blogs</button></a>
+
     </div>
 
 

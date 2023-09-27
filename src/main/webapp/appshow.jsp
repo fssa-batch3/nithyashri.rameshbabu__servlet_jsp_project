@@ -6,13 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/appshow.css">
+    <link rel="stylesheet" href="./assets/css/appshow.css">
 </head>
 
 <body>
-    <header class="header" id="docheader">
-
-    </header>
+<jsp:include page="docheader.jsp"></jsp:include>
 
     <body>
         <div class="main">
@@ -41,65 +39,23 @@
 
         <script>
 
-            let geturl = window.location.search
-            const url = window.location.search;
-            const url_params = new URLSearchParams(url)
-            const get_id = url_params.get("docid")
-
-            let details = JSON.parse(localStorage.getItem("appointmentdetails"))
-
-            for (let i = 0; i < details.length; i++) {
-                if (get_id == details[i]["Docid"]) {
-                    let time = details[i].slotID;
-                    console.log(time);
-                    const parts = time.split("_");
-                    const times = parts[3].split("-");
-                    const timeRange = times[0] + "-" + times[1];
-
-
-
-
-
-
-
-
-
-
-
-                    let card = document.createElement("div")
-                    card.setAttribute("class", "card")
-                    card.innerHTML = `<h1>Appointment Confirmation</h1>
-                <div class="appointment-details">
-                    <p>Patient Name: ${details[i].appname} </p>
-                    <p>Patient Mail: ${details[i].appemail} </p>
-                    <p>Patient Ph-no: ${details[i].appphn} </p>
-                    
-                </div>
-                <div class="date-time">
-                    
-                    <p><b>Date:</b> ${details[i].appdte}</p><br>
-                    <p><b>Time:</b> ${timeRange}</p>
-                </div>`
-                    // <a href="#" class="btn">Add to Calendar</a>`
-
-                    document.querySelector(".main").append(card)
-                }
-            }
 
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+ <script src="<%= request.getContextPath() %>/assets/js/appshow.js"></script>
 
         <script>
             function docprofile() {
-                window.location.href = "./doctorprofile.html"
+                window.location.href = "./doctorprofile.jsp"
             }
         </script>
 
-        <script src="../components/docheader.js">
+<!--         <script src="../components/docheader.js">
         </script>
         <script>
             docnav_head()
-        </script>
+        </script> -->
     </body>
 
 

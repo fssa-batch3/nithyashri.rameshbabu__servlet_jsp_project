@@ -2,11 +2,13 @@ package com.fssa.mgoodapp;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fssa.mgood.model.DoctorsModel;
 import com.fssa.mgood.service.DoctorService;
@@ -29,7 +31,6 @@ public class CreateDoctorServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String regnum = request.getParameter("regnum");
 		String regcouncil = request.getParameter("regcouncil");
-		String regyear = request.getParameter("regyear");
 		String degree = request.getParameter("degree");
 		String college = request.getParameter("college");
 		String comyr = request.getParameter("comyr");
@@ -63,8 +64,8 @@ public class CreateDoctorServlet extends HttpServlet {
 			docmodel.setConsulationFee(consultFeeInt);
 			docmodel.setDegree(degree);
 			docmodel.setPassword(password);
-			docmodel.setDoctorAvailabilityEnd(availfrom);
-			docmodel.setDoctorAvailabilityFrom(availend);
+			docmodel.setDoctorAvailabilityEnd(availend);
+			docmodel.setDoctorAvailabilityFrom(availfrom);
 			docmodel.setDoctorImg(docimg);
 			docmodel.setEmail(email);
 			docmodel.setExperience(ExperienceYrInt);
@@ -74,16 +75,20 @@ public class CreateDoctorServlet extends HttpServlet {
 			docmodel.setRegistrationCouncil(regcouncil);
 			docmodel.setRegistrationNumber(regnum);
 			docmodel.setSpecialization(specialization);
-			docmodel.setRegistrationYear(regyear);
 		
-			
+			HttpSession session = request.getSession();
+			session.setAttribute("email", email);
+		     
 			docservice.createDoctor(docmodel);
-			response.sendRedirect("./docapprove.jsp?doctorname="+doctorname);
+			request.setAttribute("email", email);
+			request.setAttribute("doctorname", doctorname);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("./docapprove.jsp");
+			dispatcher.forward(request, response);
 				
 		}
 		
 		catch(ServiceException e){
-			e.printStackTrace();
+			response.sendRedirect("docsign.jsp?errorMessage= " + e.getMessage());
 		}
 	}
 	

@@ -164,7 +164,7 @@
                 // rating
                 heading = document.createElement("h2");
                 heading.setAttribute("id", "user");
-                heading.innerText = element["name"]
+                heading.innerText = "Dr. " +element["name"]
                 div2.append(heading);
                 // title
                 passage = document.createElement("p");

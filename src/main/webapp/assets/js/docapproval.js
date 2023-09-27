@@ -43,11 +43,14 @@
             }
         })
         console.log(finddoctor)
+        
+        
+        
         if (finddoctor["approve"] == "no") {
             // alert("Your information is invalid so admin declined you")
             window.location.href = "./declineddoctor.html"
         }
-        else if (finddoctor["approve"] == "") {
+        else if (finddoctor["approve"] == "yes") {
             // alert("Your information is valid so admin approved you")
             // window.location.href = "./docapprove.html"
         }

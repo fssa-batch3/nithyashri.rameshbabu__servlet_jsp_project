@@ -6,16 +6,81 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/docprofile.css">
+    <link rel="stylesheet" href="./assets/css/docprofile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100&family=Poppins:wght@100;300;400;500;700&display=swap");
+:root {
+  --aqua: #60a995;
+  --black: #444;
+  --light-color: #777;
+  --box-shadow: 0.5rem 0.5rem 0 #60a995;
+  --text-shadow: 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+  --border: 0.2rem solid var(--green);
+}
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  text-transform: capitalize;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease-out;
+}
 
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+.header {
+  padding: 2rem 9%;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  z-index: 1000;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  position: fixed;
+}
+.header .logo {
+  font-size: 2.6rem;
+  color: var(--black);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.header .logo i {
+  color: var(--aqua);
+}
+.header .navbar a {
+  font-size: 1.7rem;
+  color: var(--light-color);
+  margin-left: 2rem;
+}
+
+.header .navbar a:hover {
+  color: var(--aqua);
+}
+#menu-btn {
+  font-size: 2.5rem;
+  border-radius: 0.5rem;
+  background: #eee;
+  color: var(--blue);
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+</style>
 <body>
+ <jsp:include page="docheader.jsp"></jsp:include>
     <div class="wholeprofilecontainer">
         <div class="userdetails">
 
             <h1 class="profileh1">Edit profile</h1>
-            <form id="form">
+            <form id="form" action = "DoctorProfileServlet" method = "POST">
                 <img alt="" id="profile">
 
                 <label for="name">First Name</label><br />
@@ -45,8 +110,7 @@
                 <label for="postalcode">Consultation fee</label><br />
                 <input class="postalcode" id="docfee" placeholder="Enter you fees" required /><br />
 
-                <button class="submit" type="submit">Edit</button>
-                <button class="submit" id="delete">Delete</button>
+	<button class="submit" onclick="save()" type="submit">Save</button>
             </form>
         </div>
     </div>
@@ -83,88 +147,42 @@
             </div>
         </div>
     </footer>
-    <script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	 <script src="script.js"></script>
+	<script>
+		function submit() {
+			document.getElementById("form").style.display = 'block';
+		}
+		function save() {
+			document.getElementById("form").style.display = 'none';
+		}
+		window.onload = function () {
+		    const url = "./DoctorProfileServlet";
+		    axios.get(url)
+		        .then(function (response) {
+		            const data = response.data; // Parse the JSON string into an object
+		            console.log(data);
+
+		            // Now you can access the properties of the DoctorsModel as an object
+		            document.getElementById("name").value = data.name;
+		            document.getElementById("mail").value = data.email;
+		            document.getElementById("pass").value = data.password;
+		            document.getElementById("mobnum").value = data.phone;
+		            document.getElementById("add").value = data.address;
+		            document.getElementById("img").value = data.profilePic;
+		            document.getElementById("profile").src = data.profilePic;
+
+		        })
+		        .catch(function (error) {
+		            console.error('Request failed', error);
+		        });
+		}
 
 
-        let oneUser = JSON.parse(localStorage.getItem("doctor_login"));
-        // for array
-        let fullArray = JSON.parse(localStorage.getItem("doctor"));
-        let selectedUser = fullArray.find(function (event) {
-            let emailValue = event["mail"];
-            if (oneUser == emailValue) {
-                return true;
-            }
-        });
-        console.log(selectedUser);
-        let first_name = document.getElementById("name");
-        console.log(first_name)
-        let email = document.getElementById("mail");
-        let doctoravailability = document.getElementById("doctor-availability");
-        let docfee = document.getElementById("docfee");
-        let docimg = document.getElementById("image_url");
-        let hosname = document.getElementById("hosname");
-        let hosimg = document.getElementById("hosimg");
-        let mobileNumber = document.getElementById("mobnum");
 
 
-        first_name.value = selectedUser["name"];
-        email.value = selectedUser["mail"];
-        doctoravailability.value = selectedUser["docslot"];
-        docimg.value = selectedUser["doctor_img"]
-        hosname.value = selectedUser["hosname"];
-        hosimg.value = selectedUser["hosimg"]
-        docfee.value = selectedUser["docfee"];
-        mobileNumber.value = selectedUser["mob"]
+	</script>
 
-        let photo = document.getElementById("profile")
-        photo.setAttribute("src", selectedUser["doctor_img"])
-
-        let pForm = document.getElementById("form");
-        pForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-            let first_name = document.getElementById("name").value;
-            let email = document.getElementById("mail").value;
-            let doctoravailability = document.getElementById("doctor-availability").value;
-            let docfee = document.getElementById("docfee").value;
-            let docimg = document.getElementById("image_url").value;
-            let hosname = document.getElementById("hosname").value;
-            let hosimg = document.getElementById("hosimg").value;
-            let mobileNumber = document.getElementById("mobnum").value;
-
-            let newData = { first_name, email, doctoravailability, docfee, docimg, hosname, hosimg, mobileNumber };
-            let combinedData = Object.assign(selectedUser, newData);
-            console.log(combinedData);
-            let findIndex = fullArray.indexOf(selectedUser);
-            console.log(findIndex);
-            fullArray[findIndex] = combinedData;
-            localStorage.setItem("doctor", JSON.stringify(fullArray));
-            alert("successfully changed");
-            window.location.href = "./successdoctor.html";
-        });
-        let delete_user = document.getElementById("delete");
-        delete_user.addEventListener("click", function (event) {
-            event.preventDefault();
-            let indexDel = fullArray.indexOf(selectedUser);
-            let msg = confirm("Are you sure you want to delete this account");
-            if (msg !== true) {
-                return;
-            } else {
-                fullArray.splice(indexDel, 1);
-                console.log(fullArray);
-                localStorage.setItem("doctor", JSON.stringify(fullArray));
-                localStorage.removeItem("doctor_login")
-                alert("account deleted")
-                window.location.href = "/index.html";
-
-            }
-
-        });
-
-    </script>
-
-    <script src="../components/docheader.js">
-
-    </script>
 
 </body>
 

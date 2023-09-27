@@ -6,20 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/successdoctor.css">
+    <link rel="stylesheet" href="./assets/css/successdoctor.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Link css -->
 </head>
 
 <body>
-    <header class="header" id="docheader">
-
-    </header>
+      <jsp:include page="docheader.jsp"></jsp:include>
 
     <!-- section starts -->
     <section class="home" id="home">
         <div class="pic">
-            <img src="../assets/images/guardian-angel-gdec27b4de_1920-removebg-preview.png" alt="firstpic">
+            <img src="./assets/images/guardian-angel-gdec27b4de_1920-removebg-preview.png" alt="firstpic">
         </div>
         <div class="content">
             <h3>Patients are looking for doctors like you</h3>
@@ -39,7 +37,7 @@
         <div class="box-container">
 
             <div class="box">
-                <img class="img1" src="../assets/images/specialities_1__2_-removebg-preview.png" alt="">
+                <img class="img1" src="./assets/images/specialities_1__2_-removebg-preview.png" alt="">
                 <div class="share">
                     <a href="../Pages/services.html" class="fab fa-blogger-b"></a>
                     <a href="../Pages/doctor.html" class="fa fa-user-md"></a>
@@ -47,7 +45,7 @@
             </div>
 
             <div class="box">
-                <img class="img1" src="../assets/images/specialities_ortho-removebg-preview.png" alt="">
+                <img class="img1" src="./assets/images/specialities_ortho-removebg-preview.png" alt="">
                 <div class="share">
                     <a href="../Pages/services.html" class="fab fa-blogger-b"></a>
                     <a href="../Pages/doctor.html" class="fa fa-user-md"></a>
@@ -55,7 +53,7 @@
             </div>
 
             <div class="box">
-                <img class="img1" src="../assets/images/specialities_8-removebg-preview.png" alt="">
+                <img class="img1" src="./assets/images/specialities_8-removebg-preview.png" alt="">
                 <div class="share">
                     <a href="../Pages/services.html" class="fab fa-blogger-b"></a>
                     <a href="../Pages/doctor.html" class="fa fa-user-md"></a>
@@ -71,7 +69,7 @@
         <div class="box-container">
 
             <div class="box">
-                <img class="img1" src="../assets/images/specialities_1__2_-removebg-preview.png" alt="">
+                <img class="img1" src="./assets/images/specialities_1__2_-removebg-preview.png" alt="">
                 <div class="share">
                     <a href="../Pages/services.html" class="fab fa-blogger-b"></a>
                     <a href="../Pages/doctor.html" class="fa fa-user-md"></a>
@@ -79,7 +77,7 @@
             </div>
 
             <div class="box">
-                <img class="img1" src="../assets/images/specialities_ortho-removebg-preview.png" alt="">
+                <img class="img1" src="./assets/images/specialities_ortho-removebg-preview.png" alt="">
                 <div class="share">
                     <a href="../Pages/services.html" class="fab fa-blogger-b"></a>
                     <a href="../Pages/doctor.html" class="fa fa-user-md"></a>
@@ -87,7 +85,7 @@
             </div>
 
             <div class="box">
-                <img class="img1" src="../assets/images/specialities_8-removebg-preview.png" alt="">
+                <img class="img1" src="./assets/images/specialities_8-removebg-preview.png" alt="">
                 <div class="share">
                     <a href="../Pages/services.html" class="fab fa-blogger-b"></a>
                     <a href="../Pages/doctor.html" class="fa fa-user-md"></a>
@@ -142,12 +140,14 @@
 
     <script>
         function docprofile() {
-            window.location.href = "./doctorprofile.html"
+            window.location.href = "./doctorprofile.jsp"
         }
     </script>
 
-    <script src="../components/docheader.js">
-    </script>
+
+<script src = "./docheader.js">
+
+</script>
     <script>
         docnav_head()
     </script>

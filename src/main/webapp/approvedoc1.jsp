@@ -16,10 +16,9 @@
         <a href="#" class="logo"> <i class="fas fa-heartbeat"></i>MGOOD</a>
 
         <nav class="navbar">
-            <a href="./adminHealthtest.html">Home</a>
-            <a href="./adminHealthtest.html">Health checks</a>
-            <a href="./admindoc.html">Doctors</a>
-            <a href="./adminservices.html">Blogs</a>
+            <a href="./adminHealthtest.jsp">Home</a>
+            <a href="./approvedoc1.jsp">Doctors</a>
+           <a href="./verifieddoctors.jsp">Verified doctors</a>
         </nav>
         <div id="menu-btn" class="fas fa-bars"></div>
     </header>

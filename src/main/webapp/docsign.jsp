@@ -10,9 +10,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 </head>
-
+<style>
+  .error-box {
+            background-color: #ffcccc;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ff0000;
+            border-radius: 5px;
+            position: absolute;
+            top: 100px;
+            left: 20px;
+            width: 200px; /* Adjust width as needed */
+        }
+</style>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+
+	
+<jsp:include page="docheader.jsp"></jsp:include>
   <div class="banner-text">
         <h2 class = "welcome">Welcome, Doctors!</h2>
         <p class="con">Join mgood today and connect with patients effortlessly.</p>
@@ -65,9 +79,19 @@
         required>
     
     <button class="submit" type="submit">Continue</button>
+    <div class="signup">Already doctor?<br><a href="./doclog.jsp">Login now</a> </div>
 </form>
 
-
+<%
+String errorMessage = request.getParameter("errorMessage");
+if (errorMessage != null) {
+%>
+<div class="error-box">
+    <p class='error'><%= errorMessage %></p>
+</div>
+<%
+}
+%>
     <script>
       /*   let form = document.querySelector(".form");
 

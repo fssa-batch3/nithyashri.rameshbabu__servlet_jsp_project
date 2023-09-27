@@ -52,7 +52,7 @@
             src= ${doctor_detail["doctorImg"]}
         alt = "" >
             <div class="share">
-                <h1 id="h1"> ${doctor_detail["name"]}</h1>
+                <h1 id="h1">Dr. ${doctor_detail["name"]}</h1>
                 <h2 id="h2"> ${doctor_detail["degree"]}</h2>
                 <p id="p"> ${doctor_detail["specialization"]}</p >
             </div >
